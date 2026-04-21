@@ -1,0 +1,34 @@
+[project]
+name = "pythonproject1"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Даниил Тарлыгин",email = "bambolbi05@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests (>=2.33.1,<3.0.0)",
+    "tqdm (>=4.67.3,<5.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+[tool.poetry.scripts]
+airpl-track = "airpl_track.__main__:user_interaction"
+[tool.poetry]
+packages = [{ include = "airpl_track", from = "src" }]
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:",
+    "def user_interaction",
+]
